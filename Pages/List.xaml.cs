@@ -65,8 +65,5 @@ public partial class List : ContentPage
         }
     }
 
-    private void Procurar(object sender, TextChangedEventArgs e)
-    {
 
-    }
 }

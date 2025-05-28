@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="crud_perfume.Pages.List"
-             Background="#FFF"
-             Title="List">
+             Title="List"
+             BackgroundImageSource="fundoperfume2.jpg">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Incluir" IconImageSource="incluirproduto.png" Clicked="AdicionarPerfume"/>
     </ContentPage.ToolbarItems>
