@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="crud_perfume.Pages.List"
+             Title="List">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Incluir" IconImageSource="incluirproduto.png" Clicked="AdicionarPerfume"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Campo de busca -->
+            <SearchBar x:Name="txtBusca" Placeholder="Buscar perfume..." TextChanged="ProcurarAsync" />
+
+            <!-- Lista de atores -->
+            <ListView x:Name="lstPerfumes" IsPullToRefreshEnabled="True" Refreshing="CarregarLista"
+                   ItemSelected="SelecionarPerfume">
+                <ListView.Header>
+                    <Grid RowDefinitions="Auto" ColumnDefinitions="*,*">
+                        <Label Text="Nome" Grid.Column="0" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                        <Label Text="Volume" Grid.Column="1" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                    </Grid>
+                </ListView.Header>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!-- Menu de contexto com botão de excluir -->
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Excluir Perfume"
+                       Clicked="ExcluirPerfume"
+                       IconImageSource="excluirproduto.png"
+                       IsDestructive="True" />
+                            </ViewCell.ContextActions>
+
+                            <!-- Layout do item -->
+                            <Grid ColumnDefinitions="*,*" Padding="10">
+                                <Label Text="{Binding Nome}" Grid.Column="0"/>
+                                <Label Text="{Binding Volume}" Grid.Column="1" HorizontalTextAlignment="End"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
