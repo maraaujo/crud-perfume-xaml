@@ -31,15 +31,15 @@ namespace crud_perfume.Database
         }
 
 
-        public Task<List<Perfume>> Update(Perfume ator)
+        public Task<List<Perfume>> Update(Perfume perfume)
         {
-            string sql = "UPDATE Ator SET AtorNome=?, AtorIdade=? WHERE AtorID=?";
-            return _context.QueryAsync<Perfume>(sql, ator.Nome, ator.Volume, ator.Id);
+            string sql = "UPDATE Perfume SET Nome=?, Voume=? WHERE Id=?";
+            return _context.QueryAsync<Perfume>(sql, perfume.Nome, perfume.Volume, perfume.Id);
         }
 
         public Task<List<Perfume>> Search(string nome)
         {
-            string sql = $"SELECT * FROM Ator WHERE AtorNome LIKE '%{nome}%'";
+            string sql = $"SELECT * FROM Perfume WHERE Nome LIKE '%{nome}%'";
             return _context.QueryAsync<Perfume>(sql);
         }
     }
